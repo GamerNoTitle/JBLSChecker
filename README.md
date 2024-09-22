@@ -29,31 +29,31 @@ Check a Jetbrains License Server is avaliable or not.
   - ```json
     {
       "available": bool,
-      "message": str,
+      "message": "str",
       "data": {
         "release_ticket_data": {
-          "action": str,
-          "confirmation_stamp": str,
-          "lease_signature": str,
-          "response_code": str,
-          "salt": str,
-          "server_lease": str,
-          "server_uid": str,
-          "validation_deadline_period": str,
-          "validation_period": str
+          "action": "str",
+          "confirmation_stamp": "str",
+          "lease_signature": "str",
+          "response_code": "str",
+          "salt": "str",
+          "server_lease": "str",
+          "server_uid": "str",
+          "validation_deadline_period": "str",
+          "validation_period": "str"
         },
         "obtain_ticket_data": {
-          "action": str,
-          "confirmation_stamp": str,
-          "lease_signature": str,
-          "message": str,
-          "prolongation_period": str,
-          "response_code": str,
-          "salt": str,
-          "server_lease": str,
-          "server_uid": str,
-          "validation_deadline_period": str,
-          "validation_period": str
+          "action": "str",
+          "confirmation_stamp": "str",
+          "lease_signature": "str",
+          "message": "str",
+          "prolongation_period": "str",
+          "response_code": "str",
+          "salt": "str",
+          "server_lease": "str",
+          "server_uid": "str",
+          "validation_deadline_period": "str",
+          "validation_period": "str"
         }
       }
     }
@@ -61,7 +61,7 @@ Check a Jetbrains License Server is avaliable or not.
 
 ## Disclaimer
 
-This program and its related documentation are provided for general informational purposes only. While we strive to ensure the accuracy and completeness of the information, we make no representations or warranties of any kind, express or implied, regarding the accuracy, reliability, or completeness of the content. You use this program at your own risk.
+This program and its related documentation are provided for general informational purposes only. While we "str"ive to ensure the accuracy and completeness of the information, we make no representations or warranties of any kind, express or implied, regarding the accuracy, reliability, or completeness of the content. You use this program at your own risk.
 
 We shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from the use or inability to use this program, including but not limited to loss of data or profits, even if we have been advised of the possibility of such damages.
 
