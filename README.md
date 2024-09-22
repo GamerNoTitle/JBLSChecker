@@ -1,4 +1,4 @@
-# JetbrainsLSAvaliableChecker
+# JBLSAvaliableChecker
 
 Check a Jetbrains License Server is avaliable or not.
 
