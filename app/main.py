@@ -19,15 +19,15 @@ USERNAME = "".join(random.sample(ascii_list, 7)).upper()
 VERSION = 2024100
 BUILD_NUMBER = "2024.1.4+Build+CL-241.18034.45"
 
-# 配置静态文件
+# Configure static files
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
-# 获取并解析 XML 响应
+# Parse xml response
 def get_xml_data(server: str, ticket_path: str):
     client = httpx.Client(verify=False)
     try:
-        response = client.get(server + ticket_path, timeout=3)  # 设置超时为10秒
-        response.raise_for_status()  # 检查响应状态
+        response = client.get(server + ticket_path, timeout=3)  # timeout 3 sec
+        response.raise_for_status()  # check status
         root = ET.fromstring(response.text)
 
         return {
