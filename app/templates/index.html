@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License Server Information</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>JetBrains License Server Info Fetcher</h1>
+
+    <form id="server-form" method="post" action="/fetch">
+        <label for="server">Enter Server URL:</label>
+        <input type="text" id="server" name="server" placeholder="https://your-server.com" required>
+        <button type="submit">Fetch Data</button>
+    </form>
+    <br>
+    <div align="center">
+        {% if obtain_data.response_code == "" %}
+        <h3> Please input your server to check. </h3>
+        {% elif obtain_data.error %}
+        <h3 style="color: red;">{{ obtain_data.error }}</h3> <!-- 显示错误信息 -->
+        {% elif obtain_data.response_code == "OK" %}
+        <h3> This server is available. </h3>
+        {% else %}
+        <h3> This server is not available: {{ obtain_data.message }} </h3>
+        {% endif %}
+    </div>
+    <hr>
+
+    <div id="results" align="center">
+        {% if release_data and obtain_data %}
+            <h2>Release Ticket Data</h2>
+            <table>
+                <tr><th>Field</th><th>Value</th></tr>
+                <tr><td>Action</td><td>{{ release_data.action }}</td></tr>
+                <tr><td>Confirmation Stamp</td><td>{{ release_data.confirmation_stamp }}</td></tr>
+                <tr><td>Lease Signature</td><td>{{ release_data.lease_signature }}</td></tr>
+                <tr><td>Response Code</td><td>{{ release_data.response_code }}</td></tr>
+                <tr><td>Salt</td><td>{{ release_data.salt }}</td></tr>
+                <tr><td>Server Lease</td><td>{{ release_data.server_lease }}</td></tr>
+                <tr><td>Server UID</td><td>{{ release_data.server_uid }}</td></tr>
+                <tr><td>Validation Deadline Period</td><td>{{ release_data.validation_deadline_period }}</td></tr>
+                <tr><td>Validation Period</td><td>{{ release_data.validation_period }}</td></tr>
+            </table>
+
+            <h2>Obtain Ticket Data</h2>
+            <table>
+                <tr><th>Field</th><th>Value</th></tr>
+                <tr><td>Action</td><td>{{ obtain_data.action }}</td></tr>
+                <tr><td>Confirmation Stamp</td><td>{{ obtain_data.confirmation_stamp }}</td></tr>
+                <tr><td>Lease Signature</td><td>{{ obtain_data.lease_signature }}</td></tr>
+                <tr><td>Message</td><td>{{ obtain_data.message }}</td></tr>
+                <tr><td>Prolongation Period</td><td>{{ obtain_data.prolongation_period }}</td></tr>
+                <tr><td>Response Code</td><td>{{ obtain_data.response_code }}</td></tr>
+                <tr><td>Salt</td><td>{{ obtain_data.salt }}</td></tr>
+                <tr><td>Server Lease</td><td>{{ obtain_data.server_lease }}</td></tr>
+                <tr><td>Server UID</td><td>{{ obtain_data.server_uid }}</td></tr>
+                <tr><td>Validation Deadline Period</td><td>{{ obtain_data.validation_deadline_period }}</td></tr>
+                <tr><td>Validation Period</td><td>{{ obtain_data.validation_period }}</td></tr>
+            </table>
+        {% endif %}
+    </div>
+
+    <script src="/static/scripts.js"></script>
+</body>
+</html>
