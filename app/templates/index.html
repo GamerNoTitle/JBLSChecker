@@ -16,7 +16,7 @@
     </form>
     <br>
     <div align="center">
-        {% if obtain_data.response_code == "" %}
+        {% if obtain_data.response_code | default ("") == "" %}
         <h3> Please input your server to check. </h3>
         {% elif obtain_data.error %}
         <h3 style="color: red;">{{ obtain_data.error }}</h3> <!-- 显示错误信息 -->

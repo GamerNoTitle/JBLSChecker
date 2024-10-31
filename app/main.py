@@ -53,7 +53,16 @@ def get_xml_data(server: str, ticket_path: str):
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    # 提供默认的 release_data 和 obtain_data
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "release_data": None,  # 默认值
+            "obtain_data": None,  # 默认值
+            "server": None,  # 默认服务器地址为空
+        },
+    )
 
 
 @app.post("/fetch", response_class=HTMLResponse)
